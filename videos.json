@@ -1,0 +1,35 @@
+{
+  "featured": "reel-01",
+  "items": [
+    {
+      "id": "reel-01",
+      "title": "Reel — Fast cut + captions",
+      "format": "vertical",
+      "source": {
+        "type": "youtube",
+        "id": "dQw4w9WgXcQ"
+      },
+      "note": "Short-form · pacing · typography"
+    },
+    {
+      "id": "yt-01",
+      "title": "YouTube — Cinematic edit (16:9)",
+      "format": "horizontal",
+      "source": {
+        "type": "youtube",
+        "id": "M7lc1UVf-VE"
+      },
+      "note": "Long-form · rhythm · sound"
+    },
+    {
+      "id": "drive-01",
+      "title": "Client cut — Drive preview",
+      "format": "horizontal",
+      "source": {
+        "type": "gdrive",
+        "id": "YOUR_GOOGLE_DRIVE_FILE_ID"
+      },
+      "note": "Private demo (make sure sharing is public)"
+    }
+  ]
+}
