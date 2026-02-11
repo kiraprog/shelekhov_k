@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Shelekhov Kirill — Video Editor</title>
+  <meta name="description" content="Video editing, color grading, motion graphics. Selected works in vertical and horizontal formats." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shelekhov Kirill — Video Editor" />
+  <meta property="og:description" content="Video editing, color grading, motion graphics. Selected works." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar__inner">
+      <a class="brand" href="#top">
+        <span class="brand__name">Shelekhov Kirill</span>
+        <span class="brand__role">Video Editor · Color · Motion</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#work">Work</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn btn--small">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero__left">
+        <h1 class="hero__title">Video editing that feels clean, intentional, and fast.</h1>
+        <p class="hero__subtitle">
+          10 years in editing & color. Premiere Pro / DaVinci Resolve. After Effects motion & compositing.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn" href="#work">View work</a>
+          <a class="btn btn--ghost" href="#contact">Get in touch</a>
+        </div>
+
+        <div class="hero__meta">
+          <span class="pill">Reels</span>
+          <span class="pill">YouTube</span>
+          <span class="pill">Ads</span>
+          <span class="pill">Color grading</span>
+          <span class="pill">Motion</span>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="card card--hero">
+          <div class="card__label">Featured</div>
+          <div class="card__title" id="featuredTitle">Loading…</div>
+          <div class="card__hint">Click a project below to watch.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="container section">
+      <div class="section__head">
+        <h2 class="section__title">Selected work</h2>
+        <div class="filters" role="tablist" aria-label="Filters">
+          <button class="filter is-active" data-filter="all" role="tab">All</button>
+          <button class="filter" data-filter="horizontal" role="tab">Horizontal</button>
+          <button class="filter" data-filter="vertical" role="tab">Vertical</button>
+        </div>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+      <div id="empty" class="empty hidden">No videos in this filter yet.</div>
+    </section>
+
+    <section id="about" class="container section">
+      <h2 class="section__title">About</h2>
+
+      <div class="about">
+        <div class="about__text">
+          <p>
+            I’m a video editor focused on pacing, clarity, and strong finishing — from short-form vertical to long-form horizontal.
+          </p>
+          <ul class="list">
+            <li>10 years of experience in editing & color (Premiere Pro, DaVinci Resolve)</li>
+            <li>Motion graphics & compositing (After Effects)</li>
+            <li>Entry-level CGI (Houdini, Blender)</li>
+            <li>English — B2</li>
+            <li>AI tools: ElevenLabs, Pika, Sora, Veo3, NanaBanana</li>
+          </ul>
+        </div>
+
+        <div class="about__card card">
+          <div class="card__label">Tools</div>
+          <div class="tags">
+            <span class="tag">Premiere Pro</span>
+            <span class="tag">DaVinci Resolve</span>
+            <span class="tag">After Effects</span>
+            <span class="tag">Houdini</span>
+            <span class="tag">Blender</span>
+            <span class="tag">AI</span>
+          </div>
+          <div class="card__hint">Minimal site · fast loading · easy updates via JSON</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container section">
+      <h2 class="section__title">Contact</h2>
+
+      <div class="contact card">
+        <div class="contact__row">
+          <div>
+            <div class="contact__label">Email</div>
+            <a id="contactEmail" class="contact__value" href="#">your@email.com</a>
+          </div>
+          <div>
+            <div class="contact__label">Telegram</div>
+            <a id="contactTelegram" class="contact__value" href="#" target="_blank" rel="noreferrer">@yourhandle</a>
+          </div>
+          <div>
+            <div class="contact__label">Instagram</div>
+            <a id="contactInstagram" class="contact__value" href="#" target="_blank" rel="noreferrer">@yourhandle</a>
+          </div>
+        </div>
+
+        <div class="contact__cta">
+          <a id="contactBtn" class="btn" href="#">Write me</a>
+          <span class="contact__hint">Edit contacts in <code>app.js</code> → <code>CONFIG</code>.</span>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> Shelekhov Kirill</span>
+        <span class="footer__dot">•</span>
+        <span class="muted">Built on GitHub Pages</span>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal__backdrop" data-close="true"></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-label="Video player">
+      <button class="modal__close" aria-label="Close" data-close="true">✕</button>
+
+      <div class="modal__head">
+        <div class="modal__title" id="modalTitle">Title</div>
+        <div class="modal__meta" id="modalMeta">Format</div>
+      </div>
+
+      <div id="playerWrap" class="player player--horizontal">
+        <iframe id="player" class="player__frame"
+          src=""
+          title="Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="modal__foot">
+        <a id="openSource" class="link" href="#" target="_blank" rel="noreferrer">Open source link</a>
+        <span class="muted">ESC to close</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
